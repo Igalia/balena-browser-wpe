@@ -1,0 +1,66 @@
+.build:
+  stage: build
+  image: igalia/yocto-builder:hardknott-x86_64
+  variables:
+    IMAGE: balena-wpe
+    MACHINE: raspberrypi3
+  tags:
+    - build-machine
+    - docker-amd64
+  timeout: 120m
+  script:
+    - ./scripts/install-build-depends.sh
+    - |
+       u=builder
+       g=users
+       d=build
+       f=${PWD}
+       while [[ $f != / ]]; do chmod +rx "$f"; f=$(dirname "$f"); done;
+       useradd -d ${PWD}/$d -g $g -N $u
+       mkdir -p $d
+       chown $u:$g $d
+       [ -d $d/downloads ]   && chown -R $u:$g $d/downloads
+       [ -d $d/sstate-cache ] && chown -R $u:$g $d/sstate-cache
+       su -c "/bin/bash ./build.sh" $u
+       # Convert the symbolic link in the actual file.
+       # This is required to upload the artifact correctly.
+       cp --remove-destination $(realpath ${d}/tmp/deploy/images/${MACHINE}/${IMAGE}-image-${MACHINE}.tar.gz) ${d}/tmp/deploy/images/${MACHINE}/${IMAGE}-image-${MACHINE}.tar.gz
+  dependencies:
+    - fetch
+  needs: ["fetch"]
+  artifacts:
+    paths:
+      - build/tmp/deploy/images/${MACHINE}/${IMAGE}-image-${MACHINE}.tar.gz
+    expire_in: 1 day
+  cache:
+    key: build-hardknott
+    paths:
+      - build/downloads/
+      - build/sstate-cache/
+
+build-balena-wpe-raspberrypi3:
+  extends: .build
+  variables:
+    MACHINE: raspberrypi3
+
+build-balena-wpe-raspberrypi3-64:
+  extends:
+    - .build
+    - .manual
+  variables:
+    MACHINE: raspberrypi3-64
+
+build-balena-wpe-raspberrypi4:
+  extends:
+    - .build
+    - .manual
+  variables:
+    MACHINE: raspberrypi4
+
+build-balena-wpe-raspberrypi4-64:
+  extends:
+    - .build
+    - .manual
+  variables:
+    MACHINE: raspberrypi4-64
+

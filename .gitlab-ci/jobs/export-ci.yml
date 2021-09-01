@@ -1,0 +1,58 @@
+.export-ci:
+  stage: export-ci
+  image: docker:stable
+  tags:
+    - docker-aarch64
+  variables:
+    IMAGE: balena-wpe
+    MACHINE: raspberrypi3
+    REGISTRY: $CI_REGISTRY
+    REGISTRY_USER: gitlab-ci-token
+    REGISTRY_PASSWORD: $CI_JOB_TOKEN
+    REGISTRY_PATH: $CI_PROJECT_PATH
+  script:
+    - apk update
+    - apk add git bash
+    - bash ./import.sh
+    - bash ./push.sh
+
+export-ci-balena-wpe-raspberrypi3:
+  image: arm32v7/docker:stable
+  extends:
+    - .export-ci
+  variables:
+    MACHINE: raspberrypi3
+    ARCH: arm32v7
+  dependencies:
+    - build-balena-wpe-raspberrypi3
+  needs: ["build-balena-wpe-raspberrypi3"]
+
+export-ci-balena-wpe-raspberrypi3-64:
+  extends:
+    - .export-ci
+  variables:
+    MACHINE: raspberrypi3-64
+  dependencies:
+    - build-balena-wpe-raspberrypi3-64
+  needs: ["build-balena-wpe-raspberrypi3-64"]
+
+export-ci-balena-wpe-raspberrypi4:
+  image: arm32v7/docker:stable
+  extends:
+    - .export-ci
+  variables:
+    MACHINE: raspberrypi4
+    ARCH: arm32v7
+  dependencies:
+    - build-balena-wpe-raspberrypi4
+  needs: ["build-balena-wpe-raspberrypi4"]
+
+export-ci-balena-wpe-raspberrypi4-64:
+  extends:
+    - .export-ci
+  variables:
+    MACHINE: raspberrypi4-64
+  dependencies:
+    - build-balena-wpe-raspberrypi4-64
+  needs: ["build-balena-wpe-raspberrypi4-64"]
+

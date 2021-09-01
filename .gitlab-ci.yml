@@ -1,0 +1,63 @@
+stages:
+  - fetch
+  - build
+  - export-ci
+  - export-prod
+
+variables:
+  DOCKER_TLS_CERTDIR: "/certs"
+
+services:
+  - docker:19.03.9-dind
+
+before_script:
+   - |
+      echo "Environment:"
+      echo "======================================================================"
+      echo "CI_PIPELINE_SOURCE=\"$CI_PIPELINE_SOURCE\""
+      echo "CI_REPOSITORY_URL=\"$CI_REPOSITORY_URL\""
+      echo "CI_COMMIT_SHA=\"$CI_COMMIT_SHA\""
+      echo "IMAGE=\"$IMAGE\""
+      echo "MACHINE=\"$MACHINE\""
+      echo "MANIFEST=\"$MANIFEST\""
+      echo "REGISTRY=\"$REGISTRY\""
+      echo "REGISTRY_USER=\"$REGISTRY_USER\""
+      echo "REGISTRY_PASSWORD=\"$REGISTRY_PASSWORD\""
+      echo "REGISTRY_PATH=\"$REGISTRY_PATH\""
+      echo "======================================================================"
+
+workflow:
+  rules:
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS && $CI_PIPELINE_SOURCE == "push"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    - if: '$CI_COMMIT_BRANCH'
+
+.prod:
+  rules:
+    - if: '$CI_COMMIT_BRANCH != "main"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+      when: manual
+    - if: '$FORCE == "yes"'
+      when: manual
+    - when: never
+
+.manual:
+  allow_failure: true
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+      when: manual
+    - if: '$FORCE == "yes"'
+      when: manual
+    - when: never
+
+include:
+  - local: '/.gitlab-ci/jobs/fetch.yml'
+  - local: '/.gitlab-ci/jobs/build.yml'
+  - local: '/.gitlab-ci/jobs/export-ci.yml'
+  - local: '/.gitlab-ci/jobs/export-prod.yml'
+

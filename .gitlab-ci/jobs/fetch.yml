@@ -1,0 +1,23 @@
+fetch:
+  stage: fetch
+  tags:
+    - docker-noarch
+    - linux
+  variables:
+    MANIFEST: manifest-hardknott.xml
+  image: debian:stable-slim
+  script:
+    - ./scripts/install-fetch-depends.sh
+    - git config --global user.name "Igalia Bot"
+    - git config --global user.email "bot@igalia.com"
+    - ~/.bin/repo init -u $CI_REPOSITORY_URL -m $MANIFEST -b $CI_COMMIT_SHA
+    - ~/.bin/repo sync --force-sync
+  cache:
+    key: sources-hardknott
+    paths:
+      - sources/
+  artifacts:
+    paths:
+      - sources/
+    expire_in: 1 day
+

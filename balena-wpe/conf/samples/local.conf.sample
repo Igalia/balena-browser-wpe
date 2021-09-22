@@ -27,22 +27,27 @@ PATCHRESOLVE = "noop"
 
 CONF_VERSION = "1"
 
-DISTRO_FEATURES_append = " opengl egl wayland"
+DISTRO_FEATURES_append = " opengl egl wayland pulseaudio"
 DISTRO_FEATURES_remove = " x11"
 
 # Install hardware acceleration codecs
 IMAGE_FEATURES_append = " hwcodecs"
 
-# Use proprietary Broadcom OpenGL drivers and wpebackend-rdk
-# PREFERRED_PROVIDER_virtual/wpebackend = "wpebackend-rdk"
+# Use Mesa VC4 OpenGL drivers and wpebackend-fdo
 PREFERRED_PROVIDER_virtual/wpebackend = "wpebackend-fdo"
 
+# GStreamer Video decoder
+# * v4l2h264dec (by default):
+PACKAGECONFIG_append_pn-gstreamer1.0-plugins-bad = " v4l2codecs"
+# * GstOMXH264Dec (only software accelarion available for VC4):
+# IMAGE_INSTALL_append = " gstreamer1.0-omx"
+
 # Enable H.264 decoding in hardware
-IMAGE_INSTALL_append = " gstreamer1.0-omx"
 LICENSE_FLAGS_WHITELIST_append = " commercial"
 
-# Enable accelerated 2D HTML5 canvas
-PACKAGECONFIG_append_pn-cairo = " glesv2 egl"
-PACKAGECONFIG_remove_pn-cairo = "opengl"
-PACKAGECONFIG_append_pn-wpewebkit = " 2dcanvas"
+# Not available for recent version of WPE WebKit
+# # Enable accelerated 2D HTML5 canvas
+# PACKAGECONFIG_append_pn-cairo = " glesv2 egl"
+# PACKAGECONFIG_remove_pn-cairo = "opengl"
+# PACKAGECONFIG_append_pn-wpewebkit = " 2dcanvas"
 

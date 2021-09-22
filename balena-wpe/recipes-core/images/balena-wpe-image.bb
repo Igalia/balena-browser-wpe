@@ -13,6 +13,6 @@ IMAGE_INSTALL_append += " \
     wpebackend-fdo wpewebkit \
     "
 
-REQUIRED_DISTRO_FEATURES = "opengl egl wayland"
+REQUIRED_DISTRO_FEATURES = "opengl egl wayland pulseaudio"
 
 VIRTUAL-RUNTIME_init_manager="busybox"

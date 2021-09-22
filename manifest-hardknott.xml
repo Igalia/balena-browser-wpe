@@ -12,5 +12,4 @@
   <project remote="yocto" revision="hardknott" name="meta-raspberrypi" path="sources/meta-raspberrypi"/>
 
   <project remote="igalia" revision="main" name="meta-webkit.git" path="sources/meta-webkit"/>
-  <project remote="github" revision="master" name="OSSystems/meta-gstreamer1.0.git" path="sources/meta-gstreamer1.0"/>
 </manifest>

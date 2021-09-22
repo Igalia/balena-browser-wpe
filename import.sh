@@ -7,7 +7,9 @@ export MACHINE=${MACHINE:-raspberrypi3}
 _ARCH=$(docker info | grep Architecture | awk '{ print $2 }')
 ARCH=${ARCH:-$_ARCH}
 
-VERSION=$(git describe --dirty --always)
+_VERSION=$(git describe --dirty --always)
+VERSION=${VERSION:-$_VERSION}
+
 REGISTRY=${REGISTRY:-docker.io}
 REGISTRY_PATH=${REGISTRY_PATH:-igalia}
 IMAGE=${IMAGE:-balena-wpe}

@@ -2,7 +2,7 @@
   stage: build
   image: igalia/yocto-builder:hardknott-x86_64
   variables:
-    IMAGE: balena-wpe
+    IMAGE: wpe
     MACHINE: raspberrypi3
   tags:
     - build-machine
@@ -19,7 +19,7 @@
        useradd -d ${PWD}/$d -g $g -N $u
        mkdir -p $d
        chown $u:$g $d
-       [ -d $d/downloads ]   && chown -R $u:$g $d/downloads
+       [ -d $d/downloads ] && chown -R $u:$g $d/downloads
        [ -d $d/sstate-cache ] && chown -R $u:$g $d/sstate-cache
        su -c "/bin/bash ./build.sh" $u
        # Convert the symbolic link in the actual file.

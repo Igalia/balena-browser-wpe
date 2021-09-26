@@ -2,29 +2,25 @@
   extends:
     - .prod
   stage: export-prod
-  image: docker:stable
+  image: igalia/balena-cli-builder:aarch64
   tags:
     - docker-aarch64
   variables:
-    IMAGE: balena-wpe
     MACHINE: raspberrypi3
     REGISTRY: $DOCKER_HUB_REGISTRY
     REGISTRY_USER: $DOCKER_HUB_USER
     REGISTRY_PASSWORD: $DOCKER_HUB_PASSWORD
     REGISTRY_PATH: igalia
   script:
-    - apk update
-    - apk add git bash
-    - bash ./import.sh
     - bash ./push.sh
 
 export-prod-balena-wpe-raspberrypi3:
-  image: arm32v7/docker:stable
+  image: igalia/balena-cli-builder:arm32v7
   extends:
     - .export-prod
   variables:
     MACHINE: raspberrypi3
-    ARCH: arm32v7
+    ARCH: armv7hf
   dependencies:
     - build-balena-wpe-raspberrypi3
   needs: ["build-balena-wpe-raspberrypi3"]
@@ -39,12 +35,12 @@ export-prod-balena-wpe-raspberrypi3-64:
   needs: ["build-balena-wpe-raspberrypi3-64"]
 
 export-prod-balena-wpe-raspberrypi4:
-  image: arm32v7/docker:stable
+  image: igalia/balena-cli-builder:arm32v7
   extends:
     - .export-prod
   variables:
     MACHINE: raspberrypi4
-    ARCH: arm32v7
+    ARCH: armv7hf
   dependencies:
     - build-balena-wpe-raspberrypi4
   needs: ["build-balena-wpe-raspberrypi4"]

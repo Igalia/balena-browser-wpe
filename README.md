@@ -176,6 +176,10 @@ Pulser Server by setting the `PULSE_SERVER` environment variable.
 |----------------------------|-------------------------------------------------------|-----------------
 | **`WPE_PULSE_SERVER`**     | `unix:/run/pulse/pulseaudio.socket`, `tcp:audio:4317` | `unix:/run/pulse/pulseaudio.socket`
 
+| Environment variable        | Options          |  Default       | Description
+|-----------------------------|------------------|----------------|--------------
+| **`CPU_SCALING_GOVERNOR`**  | [options](https://www.kernel.org/doc/html/latest/admin-guide/pm/cpufreq.html#generic-scaling-governors) | ondemand | Scaling governors
+
 ### Useful environment variables for debugging
 
 | Environment variable         | Example        | Description

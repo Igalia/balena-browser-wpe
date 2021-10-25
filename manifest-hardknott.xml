@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
+  <remote name="github" fetch="https://github.com"/>
+  <remote name="igalia" fetch="https://github.com/Igalia"/>
+  <remote name="oe" fetch="https://git.openembedded.org/"/>
+  <remote name="yocto" fetch="https://git.yoctoproject.org/git/"/>
+  
   <default sync-j="2"/>
-
-  <remote fetch="https://git.openembedded.org/" name="oe"/>
-  <remote fetch="https://git.yoctoproject.org/git/" name="yocto"/>
-  <remote fetch="https://github.com" name="github"/>
-  <remote fetch="https://github.com/Igalia" name="igalia"/>
-
-  <project remote="oe" revision="hardknott" name="meta-openembedded" path="sources/meta-openembedded"/>
-  <project remote="yocto" revision="hardknott" name="poky" path="sources/poky"/>
-  <project remote="yocto" revision="hardknott" name="meta-raspberrypi" path="sources/meta-raspberrypi"/>
-
-  <project remote="igalia" revision="main" name="meta-webkit.git" path="sources/meta-webkit"/>
+  
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="d378e4293d18e374f5d1494a88bfc3caee4d02df" upstream="hardknott" dest-branch="hardknott"/>
+  <project name="meta-raspberrypi" path="sources/meta-raspberrypi" remote="yocto" revision="9d372828ba657340a42e31875d2326e5f6753403" upstream="hardknott" dest-branch="hardknott"/>
+  <project name="meta-webkit.git" path="sources/meta-webkit" remote="igalia" revision="abf54c15f27de2d6ca9ec89a8c289cb06dd1172c" upstream="main" dest-branch="main"/>
+  <project name="poky" path="sources/poky" remote="yocto" revision="5af92e6a399ff0543c225551780195fee04db833" upstream="hardknott" dest-branch="hardknott"/>
 </manifest>

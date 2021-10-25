@@ -19,4 +19,6 @@ else
 fi
 echo "    - Image: ${IMAGE}-image"
 echo "    - Machine: ${MACHINE}"
-
+echo "    - Manifest: build/tmp/deploy/images/${MACHINE}/${IMAGE}-image-${MACHINE}.manifest"
+echo ""
+cat tmp/deploy/images/${MACHINE}/${IMAGE}-image-${MACHINE}.manifest

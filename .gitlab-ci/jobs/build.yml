@@ -24,6 +24,7 @@
        su -c "/bin/bash ./build.sh" $u
        # Convert the symbolic link in the actual file.
        # This is required to upload the artifact correctly.
+       cp --remove-destination $(realpath ${d}/tmp/deploy/images/${MACHINE}/${IMAGE}-image-${MACHINE}.manifest) ${d}/tmp/deploy/images/${MACHINE}/${IMAGE}-image-${MACHINE}.manifest
        cp --remove-destination $(realpath ${d}/tmp/deploy/images/${MACHINE}/${IMAGE}-image-${MACHINE}.tar.gz) ${d}/tmp/deploy/images/${MACHINE}/${IMAGE}-image-${MACHINE}.tar.gz
   dependencies:
     - fetch

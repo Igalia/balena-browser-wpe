@@ -28,7 +28,7 @@ PATCHRESOLVE = "noop"
 CONF_VERSION = "1"
 
 DISTRO_FEATURES_append = " opengl egl wayland pulseaudio"
-DISTRO_FEATURES_remove = " x11"
+DISTRO_FEATURES_remove = " x11 ptest"
 
 # Install hardware acceleration codecs
 IMAGE_FEATURES_append = " hwcodecs"

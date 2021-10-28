@@ -42,6 +42,7 @@ if [ "${SKIP_BUILD_BALENA}" == "1" ]
 then
     echo ">>> Build Balena image (SKIPPED):"
 else
+    cp build/tmp/deploy/images/${MACHINE}/${IMAGE}-image-${MACHINE}.manifest ./balena/image.manifest
     balena build ./balena --deviceType ${MACHINE} --arch ${ARCH}
     docker tag "balena_${IMAGE}" "${IMAGE_BALENA_IN_DOCKER}"
     docker tag "balena_${IMAGE}" "${IMAGE_BALENA_IN_DOCKER}-${VERSION}"

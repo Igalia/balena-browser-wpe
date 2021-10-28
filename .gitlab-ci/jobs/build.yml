@@ -31,6 +31,7 @@
   artifacts:
     paths:
       - build/tmp/deploy/images/${MACHINE}/${IMAGE}-image-${MACHINE}.tar.gz
+      - build/tmp/deploy/images/${MACHINE}/${IMAGE}-image-${MACHINE}.manifest
     expire_in: 1 day
   cache:
     key: build-hardknott

@@ -2,7 +2,7 @@
 
 set -o errexit
 
-export IMAGE=${IMAGE:-wpe}
+export IMAGE=${IMAGE:-browser-wpe}
 export MACHINE=${MACHINE:-raspberrypi3}
 export BB_NUMBER_THREADS=${BB_NUMBER_THREADS:-16}
 export PARALLEL_MAKE=${PARALLEL_MAKE:--j 30}

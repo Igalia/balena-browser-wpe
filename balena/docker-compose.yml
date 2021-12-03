@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  wpe:
+  browser-wpe:
     restart: always
     build: .
     privileged: true

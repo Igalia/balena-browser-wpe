@@ -16,13 +16,13 @@ assets:
   repository:
     type: blob.asset
     data:
-      url: 'https://gitlab.com/browsers/docker-balena-wpe'
+      url: 'https://github.com/Igalia/balena-browser-wpe'
   logo:
     type: blob.asset
     data:
-      url: 'https://raw.githubusercontent.com/igalia/docker-balena-wpe/main/logo.png'
+      url: 'https://raw.githubusercontent.com/Igalia/balena-browser-wpe/main/logo.png'
 data:
-  defaultDeviceType: raspberrypi3
+  defaultDeviceType: raspberrypi4-64
   supportedDeviceTypes:
     - raspberrypi4-64
     - raspberrypi3

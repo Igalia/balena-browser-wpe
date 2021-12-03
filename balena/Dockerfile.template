@@ -1,4 +1,4 @@
-FROM igalia/docker-wpe:%%BALENA_MACHINE_NAME%%
+FROM igalia/docker-browser-wpe:%%BALENA_MACHINE_NAME%%
 
 COPY image.manifest /image.manifest
 

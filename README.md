@@ -38,7 +38,7 @@ services:
 
   weston:
     restart: always
-    build: igalia/balena-weston
+    image: igalia/balena-weston
     privileged: true
     volumes:
       - 'weston:/run/weston'

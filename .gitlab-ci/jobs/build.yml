@@ -2,7 +2,7 @@
   stage: build
   image: igalia/yocto-builder:hardknott-x86_64
   variables:
-    IMAGE: wpe
+    IMAGE: browser-wpe
     MACHINE: raspberrypi3
   tags:
     - build-machine

@@ -1,5 +1,8 @@
 #!/bin/sh
 
+export WAYLAND_DISPLAY="wayland-0"
+export XDG_RUNTIME_DIR=/run/weston/xdg_runtime
+
 URL=${WPE_URL:-https://wpewebkit.org}
 CPU_SCALING_GOVERNOR=${CPU_SCALING_GOVERNOR:-performance}
 
@@ -15,9 +18,8 @@ udevadm trigger
 # /var/tmp is need for gstreamer to download chunks of videos
 mkdir -p /var/volatile/tmp  || rm -rf /var/volatile/tmp/*
 
-# Create XDG runtime dir
-mkdir -p /run/weston/xdg_runtime
-chmod 0700 /run/weston/xdg_runtime
+# Wait for the Wayland compositor is available
+while ! /usr/bin/waylandeglinfo; do sleep 0.5; done
 
 # Launch a D-Bus daemon for cogctl
 mkdir -p /run/dbus/

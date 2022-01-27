@@ -4,7 +4,7 @@ fetch:
     - docker-noarch
     - linux
   variables:
-    MANIFEST: manifest-hardknott.xml
+    MANIFEST: manifest-honister.xml
   image: debian:stable-slim
   script:
     - ./scripts/install-fetch-depends.sh

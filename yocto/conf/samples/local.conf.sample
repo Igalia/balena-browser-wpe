@@ -20,34 +20,37 @@ RM_OLD_IMAGE = "1"
 PACKAGE_CLASSES ?= "package_ipk"
 
 # Additional image features
-USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+USER_CLASSES ?= "buildstats"
 
 # By default disable interactive patch resolution (tasks will just fail instead):
 PATCHRESOLVE = "noop"
 
-CONF_VERSION = "1"
+CONF_VERSION = "2"
 
-DISTRO_FEATURES_append = " opengl egl wayland pulseaudio"
-DISTRO_FEATURES_remove = " x11 ptest"
+DISTRO_FEATURES:append = " opengl egl wayland pulseaudio"
+DISTRO_FEATURES:remove = " x11 ptest"
 
 # Install hardware acceleration codecs
-IMAGE_FEATURES_append = " hwcodecs"
+IMAGE_FEATURES:append = " hwcodecs"
 
 # Use Mesa VC4 OpenGL drivers and wpebackend-fdo
-PREFERRED_PROVIDER_virtual/wpebackend = "wpebackend-fdo"
+PREFERRED_PROVIDER:virtual/wpebackend = "wpebackend-fdo"
 
 # GStreamer Video decoder
 # * v4l2h264dec (by default):
-PACKAGECONFIG_append_pn-gstreamer1.0-plugins-bad = " v4l2codecs"
+PACKAGECONFIG:append:pn-gstreamer1.0-plugins-bad = " v4l2codecs"
 # * GstOMXH264Dec (only software accelarion available for VC4):
-# IMAGE_INSTALL_append = " gstreamer1.0-omx"
+# IMAGE_INSTALL:append = " gstreamer1.0-omx"
 
 # Enable H.264 decoding in hardware
-LICENSE_FLAGS_WHITELIST_append = " commercial"
+LICENSE_FLAGS_WHITELIST:append = " commercial"
+
+# Enable the 'wl' backend for Cog
+PACKAGECONFIG:append:pn-cog = " wl"
 
 # Not available for recent version of WPE WebKit
 # # Enable accelerated 2D HTML5 canvas
-# PACKAGECONFIG_append_pn-cairo = " glesv2 egl"
-# PACKAGECONFIG_remove_pn-cairo = "opengl"
-# PACKAGECONFIG_append_pn-wpewebkit = " 2dcanvas"
+# PACKAGECONFIG:append:pn-cairo = " glesv2 egl"
+# PACKAGECONFIG:remove:pn-cairo = "opengl"
+# PACKAGECONFIG:append:pn-wpewebkit = " 2dcanvas"
 

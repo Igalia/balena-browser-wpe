@@ -60,8 +60,8 @@ services:
 * Getting the sources
 
   ```bash
-  git clone https://gitlab.com/browsers/balena-wpe.git
-  repo init -u https://gitlab.com/browsers/balena-wpe.git -m manifest-hardknott.xml -b main
+  git clone https://github.com/Igalia/balena-browser-wpe.git
+  repo init -u https://github.com/Igalia/balena-browser-wpe.git -m manifest-honister.xml -b main
   repo sync --force-sync
   ```
 

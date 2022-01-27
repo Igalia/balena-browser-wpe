@@ -2,7 +2,7 @@ include recipes-core/images/core-image-minimal.bb
 
 IMAGE_FSTYPES = "tar.gz"
 
-IMAGE_INSTALL_append += " \
+IMAGE_INSTALL:append += " \
     cog \
     fontconfig \
     fontconfig-utils \
@@ -16,4 +16,4 @@ IMAGE_INSTALL_append += " \
 
 REQUIRED_DISTRO_FEATURES = "opengl egl wayland pulseaudio"
 
-VIRTUAL-RUNTIME_init_manager="busybox"
+VIRTUAL-RUNTIME:init_manager="busybox"

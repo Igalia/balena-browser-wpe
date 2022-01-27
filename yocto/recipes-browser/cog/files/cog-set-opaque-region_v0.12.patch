@@ -1,8 +1,8 @@
-diff --git a/platform/fdo/cog-platform-fdo.c b/platform/fdo/cog-platform-fdo.c
-index 79e0009..5638d74 100644
---- a/platform/fdo/cog-platform-fdo.c
-+++ b/platform/fdo/cog-platform-fdo.c
-@@ -1630,7 +1630,24 @@ on_export_fdo_egl_image(void *data, struct wpe_fdo_egl_exported_image *image)
+diff --git a/platform/wayland/cog-platform-wl.c b/platform/wayland/cog-platform-wl.c
+index 92e0be3..d6f268a 100644
+--- a/platform/wayland/cog-platform-wl.c
++++ b/platform/wayland/cog-platform-wl.c
+@@ -1639,7 +1639,24 @@ on_export_wl_egl_image(void *data, struct wpe_fdo_egl_exported_image *image)
  
      if (wpe_view_data.should_update_opaque_region) {
          wpe_view_data.should_update_opaque_region = false;

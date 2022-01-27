@@ -23,7 +23,7 @@ function launch
 	do
         killall /usr/bin/cog
         echo "Launching Cog for $@ ..."
-        /usr/bin/cog -P fdo $@
+        /usr/bin/cog -P wl $@
         if [ "${WPE_COG_RELAUNCH}" == "1" ]
         then
             sleep ${WPE_COG_RELAUNCH_DELAY:-5}

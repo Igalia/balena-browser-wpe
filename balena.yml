@@ -1,6 +1,5 @@
 name: browser-wpe
 description: >-
-
   It provides a Web based screen display running on [WPE
   WebKit](https://www.igalia.com/wpe/). Contrary to other solutions, this
   project runs the browser on the top of a [Wayland
@@ -20,8 +19,7 @@ assets:
   logo:
     type: blob.asset
     data:
-      url: >-
-        https://raw.githubusercontent.com/Igalia/balena-browser-wpe/main/logo.png
+      url: 'https://raw.githubusercontent.com/Igalia/balena-browser-wpe/main/logo.png'
 data:
   defaultDeviceType: raspberrypi4-64
   supportedDeviceTypes:

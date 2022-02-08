@@ -1,0 +1,12 @@
+version: '2'
+
+volumes:
+    pulse:                          # Required for PA over UNIX socket
+    weston:
+
+services:
+  wpe:
+    restart: always
+    build: ./balena
+    privileged: true
+

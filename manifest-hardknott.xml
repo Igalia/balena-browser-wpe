@@ -9,6 +9,6 @@
   
   <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="d378e4293d18e374f5d1494a88bfc3caee4d02df" upstream="hardknott" dest-branch="hardknott"/>
   <project name="meta-raspberrypi" path="sources/meta-raspberrypi" remote="yocto" revision="9d372828ba657340a42e31875d2326e5f6753403" upstream="hardknott" dest-branch="hardknott"/>
-  <project name="meta-webkit.git" path="sources/meta-webkit" remote="igalia" revision="490b3856396987179c71d13af30e818ba9c61687" upstream="hardknott" dest-branch="hardknott"/>
+  <project name="meta-webkit.git" path="sources/meta-webkit" remote="igalia" revision="07a1cc2fbe34617043e09b1aafe9dcf34c975df3" upstream="hardknott" dest-branch="hardknott"/>
   <project name="poky" path="sources/poky" remote="yocto" revision="5af92e6a399ff0543c225551780195fee04db833" upstream="hardknott" dest-branch="hardknott"/>
 </manifest>

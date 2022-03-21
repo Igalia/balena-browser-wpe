@@ -7,7 +7,7 @@
   tags:
     - build-machine
     - docker-amd64
-  timeout: 120m
+  timeout: 240m
   script:
     - ./scripts/install-build-depends.sh
     - |

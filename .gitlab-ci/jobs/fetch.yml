@@ -19,5 +19,4 @@ fetch:
   artifacts:
     paths:
       - sources/
-    expire_in: 1 day
 

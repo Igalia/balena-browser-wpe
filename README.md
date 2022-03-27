@@ -57,7 +57,7 @@ services:
 
 ## How to build
 
-*  Install depends (Debian based OS):
+* Install depends (Debian based OS):
 
   ```bash
   sudo scripts/install-fetch-depends.sh
@@ -65,7 +65,7 @@ services:
   sudo scripts/install-push-depends.sh
   ```
 
-* Getting the sources
+* Getting the sources:
 
   ```bash
   git clone https://github.com/Igalia/balena-browser-wpe.git

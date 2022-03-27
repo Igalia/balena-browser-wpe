@@ -60,9 +60,9 @@ services:
 *  Install depends (Debian based OS):
 
   ```bash
-sudo scripts/install-fetch-depends.sh
-sudo scripts/install-build-depends.sh
-sudo scripts/install-push-depends.sh
+  sudo scripts/install-fetch-depends.sh
+  sudo scripts/install-build-depends.sh
+  sudo scripts/install-push-depends.sh
   ```
 
 * Getting the sources

@@ -12,10 +12,6 @@ fetch:
     - git config --global user.email "bot@igalia.com"
     - ~/.bin/repo init -u $CI_REPOSITORY_URL -m $MANIFEST -b $CI_COMMIT_SHA
     - ~/.bin/repo sync --force-sync
-  cache:
-    key: sources-honister
-    paths:
-      - sources/
   artifacts:
     paths:
       - sources/

@@ -7,7 +7,6 @@ export MACHINE=${MACHINE:-raspberrypi3}
 export BB_NUMBER_THREADS=${BB_NUMBER_THREADS:-16}
 export PARALLEL_MAKE=${PARALLEL_MAKE:--j 30}
 export TEMPLATECONF="../../yocto/conf/samples"
-export BITBAKE_LOCAL_CONF="/home/psaavedra/bitbake_local.conf"
 
 if [ "${SKIP_BUILD_YOCTO}" == "1" ]
 then

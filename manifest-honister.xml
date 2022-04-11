@@ -6,8 +6,8 @@
   <remote name="yocto" fetch="https://git.yoctoproject.org/git/"/>
 
   <default sync-j="2"/>
-  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="0fb490a08ce30b47a5ccd2fdc3448b08e0d9e4e9" upstream="honister" dest-branch="honister"/>
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="061b7fc74f887454251307ef119b808a90654d3f" upstream="honister" dest-branch="honister"/>
   <project name="meta-raspberrypi" path="sources/meta-raspberrypi" remote="yocto" revision="378d4b6e7ba64b6a9a701457cc3780fa896ba5dc" upstream="honister" dest-branch="honister"/>
-  <project name="meta-webkit.git" path="sources/meta-webkit" remote="igalia" revision="188f82ff8da577eec4b44c7bf0b47763758b87d0" upstream="main" dest-branch="main"/>
-  <project name="poky" path="sources/poky" remote="yocto" revision="630d754ea3d7206976b1e0f4489e054cdbc08fe8" upstream="honister" dest-branch="honister"/>
+  <project name="meta-webkit.git" path="sources/meta-webkit" remote="igalia" revision="438991116ffb84a31e942a06b2e72a1d36207982" upstream="main" dest-branch="main"/>
+  <project name="poky" path="sources/poky" remote="yocto" revision="ee68ae307fd951b9de6b31dc6713ea29186b7749" upstream="honister" dest-branch="honister"/>
 </manifest>

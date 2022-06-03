@@ -20,7 +20,7 @@ IMAGE=${IMAGE:-browser-wpe}
 IMAGE_BALENA_IN_DOCKER="${REGISTRY}/${REGISTRY_PATH}/balena-${IMAGE}:${MACHINE}"
 IMAGE_YOCTO_IN_DOCKER="${REGISTRY}/${REGISTRY_PATH}/docker-${IMAGE}:${MACHINE}"
 # Required because the Dockerfile.template is set to # igalia/${IMAGE}:${MACHINE}
-IMAGE_YOCTO_LOCAL_IN_DOCKER="${_IGALIA}/docker-${IMAGE}:${MACHINE}"
+IMAGE_YOCTO_LOCAL_IN_DOCKER="${_IGALIA}/balena-${IMAGE}:${MACHINE}"
 
 if [ "${SKIP_IMPORT_YOCTO}" == "1" ]
 then
@@ -36,7 +36,7 @@ else
 fi
 echo "    - Machine: ${MACHINE}"
 echo "    - Platform: ${ARCH}"
-echo "    - Image: docker-${IMAGE} (docker-${IMAGE}-${VERSION})"
+echo "    - Image: ${IMAGE_YOCTO_LOCAL_IN_DOCKER} (${IMAGE_YOCTO_LOCAL_IN_DOCKER}-${VERSION})"
 
 if [ "${SKIP_BUILD_BALENA}" == "1" ]
 then

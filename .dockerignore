@@ -1,0 +1,7 @@
+**/.git
+!**/.balena
+!**/.resin
+!**/Dockerfile
+!**/Dockerfile.*
+!**/docker-compose.yml
+

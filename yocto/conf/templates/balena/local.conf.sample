@@ -41,9 +41,11 @@ PREFERRED_PROVIDER:virtual/wpebackend = "wpebackend-fdo"
 PACKAGECONFIG:append:pn-gstreamer1.0-plugins-bad = " v4l2codecs"
 # * GstOMXH264Dec (only software accelarion available for VC4):
 # IMAGE_INSTALL:append = " gstreamer1.0-omx"
+# * gstreamer1.0-libav (required for VP9 videos playback):
+IMAGE_INSTALL:append = " gstreamer1.0-libav"
 
 # Enable H.264 decoding in hardware
-LICENSE_FLAGS_WHITELIST:append = " commercial"
+LICENSE_FLAGS_ACCEPTED:append = " commercial"
 
 # Enable the 'wl' backend for Cog
 PACKAGECONFIG:append:pn-cog = " wl"

@@ -4,7 +4,7 @@ fetch:
     - docker-noarch
     - linux
   variables:
-    MANIFEST: manifest-honister.xml
+    MANIFEST: manifest-langdale.xml
   image: debian:stable-slim
   script:
     - ./scripts/install-fetch-depends.sh

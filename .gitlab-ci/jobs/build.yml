@@ -1,6 +1,6 @@
 .build:
   stage: build
-  image: igalia/yocto-builder:honister-x86_64
+  image: igalia/yocto-builder:langdale-x86_64
   variables:
     IMAGE: browser-wpe
     MACHINE: raspberrypi3
@@ -35,7 +35,7 @@
       - build/tmp/deploy/images/${MACHINE}/${IMAGE}-image-${MACHINE}.manifest
     expire_in: 1 day
   cache:
-    key: build-honister
+    key: build-langdale
     paths:
       - build/downloads/
       - build/sstate-cache/

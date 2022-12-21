@@ -43,7 +43,8 @@ then
     echo ">>> Build Balena image (SKIPPED):"
 else
     cp build/tmp/deploy/images/${MACHINE}/${IMAGE}-image-${MACHINE}.manifest ./balena/image.manifest
-    balena build . --deviceType ${MACHINE} --arch ${ARCH}
+    rm -rf build
+    balena build . --deviceType ${MACHINE} -e --arch ${ARCH}
     docker tag "docker-balena-wpe_wpe" "${IMAGE_BALENA_IN_DOCKER}"
     docker tag "docker-balena-wpe_wpe" "${IMAGE_BALENA_IN_DOCKER}-${VERSION}"
 fi

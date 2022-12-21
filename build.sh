@@ -6,7 +6,7 @@ export IMAGE=${IMAGE:-browser-wpe}
 export MACHINE=${MACHINE:-raspberrypi3}
 export BB_NUMBER_THREADS=${BB_NUMBER_THREADS:-16}
 export PARALLEL_MAKE=${PARALLEL_MAKE:--j 30}
-export TEMPLATECONF="../../yocto/conf/samples"
+export TEMPLATECONF="../../yocto/conf/templates/balena"
 
 if [ "${SKIP_BUILD_YOCTO}" == "1" ]
 then

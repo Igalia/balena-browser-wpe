@@ -2,7 +2,7 @@ include recipes-core/images/core-image-minimal.bb
 
 IMAGE_FSTYPES = "tar.gz"
 
-IMAGE_INSTALL:append += " \
+IMAGE_INSTALL:append = " \
     cog \
     fontconfig \
     fontconfig-utils \

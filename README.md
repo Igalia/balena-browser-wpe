@@ -85,6 +85,7 @@ services:
   ```bash
   MACHINE=raspberrypi3
   IMAGE_DOCKER_PATH=igalia
+  # BALENA_BUILD_EXTRA_ARGS="-e"  # In case of balena is being executed on a different host architecture than the balena machine target
   ./push.sh
   ```
 

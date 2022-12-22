@@ -44,7 +44,7 @@ then
 else
     cp build/tmp/deploy/images/${MACHINE}/${IMAGE}-image-${MACHINE}.manifest ./balena/image.manifest
     rm -rf build
-    balena build . --deviceType ${MACHINE} -e --arch ${ARCH}
+    balena build . --deviceType ${MACHINE} --arch ${ARCH} ${BALENA_BUILD_EXTRA_ARGS}
     docker tag "docker-balena-wpe_wpe" "${IMAGE_BALENA_IN_DOCKER}"
     docker tag "docker-balena-wpe_wpe" "${IMAGE_BALENA_IN_DOCKER}-${VERSION}"
 fi

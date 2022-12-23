@@ -1,6 +1,6 @@
 #! /bin/sh
 
-export WAYLAND_DISPLAY="wayland-0"
+export WAYLAND_DISPLAY=${WAYLAND_DISPLAY:-wayland-0}
 export XDG_RUNTIME_DIR=/run/weston/xdg_runtime
 
 export COG_PLATFORM_WL_VIEW_FULLSCREEN=${WPE_COG_PLATFORM_WL_VIEW_FULLSCREEN:-0}

@@ -6,6 +6,21 @@ description: >-
   systems based on Web platform technologies. It is a WebKit port designed with
   flexibility and hardware acceleration in mind, leveraging common 3D graphics
   APIs for best performance.
+
+  **Project Status: No Longer Under Active Development**
+
+  This project was an experiment to integrate WPE into the Balena Hub.
+  It is not currently actively developed or maintained.  The current
+  version available from Balena Hub does not reflect the most recent
+  advancements or patches in the WPE ecosystem.
+
+  If an up to date Balena block is very important to you, we'd be very
+  interested to hear more.  Meanwhile, if you encounter issues or are
+  seeking updates, we recommend exploring alternative solutions or resources
+  that align with your requirements.
+
+  Should you have any further questions or inquiries, please feel free to
+  get in touch.
 version: 3.0.1
 type: sw.application
 assets:

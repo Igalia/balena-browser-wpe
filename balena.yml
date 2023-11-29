@@ -1,13 +1,6 @@
 name: browser-wpe
 description: >-
-  It provides a Web based screen display running on WPE WebKit. Contrary to
-  other solutions, this project runs the browser on the top of a Wayland
-  compositor. WPE WebKit allows embedders to create simple and performant
-  systems based on Web platform technologies. It is a WebKit port designed with
-  flexibility and hardware acceleration in mind, leveraging common 3D graphics
-  APIs for best performance.
-
-  **Project Status: No Longer Under Active Development**
+  PROJECT STATUS: NO LONGER UNDER ACTIVE DEVELOPMENT.
 
   This project was an experiment to integrate WPE into the Balena Hub.
   It is not currently actively developed or maintained.  The current
